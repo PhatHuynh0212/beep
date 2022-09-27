@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,7 +25,7 @@ namespace demo
         static void Main(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
-            string[] loiBaiHat = { "Con", "cò", "bé", "bé", "nó", "đậu", "cành", "tre"};
+            string[] loiBaiHat = { "Con", "cò", "bé", "bé", "nó", "đậu", "cành", "tre" };
             foreach (string loi in loiBaiHat)
             {
                 Console.Write("{0} ", loi);
@@ -34,24 +34,33 @@ namespace demo
             int[] hz = tanSo();
             int[] duration = khoangThoiGian();
             int[] timeBreak = thoiGianCho();
+
             for (int i = 0; i < loiBaiHat.Length; i++)
             {
-                for (int j = 0; j < i; j++)
+                for(int j = 0; j <= i; j++)
                 {
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.Write(loiBaiHat[j] + " ");
+                    if (j != loiBaiHat.Length)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.Write(loiBaiHat[j] + " ");
+                    }
+
                 }
 
-                for (int z = i; z < loiBaiHat.Length; z++)
+                for (int z = i + 1; z < loiBaiHat.Length; z++)
                 {
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.Write(loiBaiHat[z] + " ");
                 }
                 Console.Beep(hz[i], duration[i]);
                 Thread.Sleep(timeBreak[i]);
-
-                Console.Clear();
+                if (i < loiBaiHat.Length - 1)
+                {
+                    Console.Clear();
+                }
             }
+
+            
             Console.ReadKey();
 
         }
