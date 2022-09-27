@@ -45,10 +45,13 @@ namespace demo
             int[] khoangThoiGian4 = { 150, 150, 150, 150, 150, 150, 180, 150 };
             int[] thoiGianCho4 = { 180, 180, 220, 180, 180, 180, 180, 300 };
 
-            Karaoke(cau1, tanSo1, khoangThoiGian1, thoiGianCho1, 0);
-            Karaoke(cau2, tanSo2, khoangThoiGian2, thoiGianCho2, 1);
-            Karaoke(cau3, tanSo3, khoangThoiGian3, thoiGianCho3, 2);
-            Karaoke(cau4, tanSo4, khoangThoiGian4, thoiGianCho4, 3);
+            Decoration();
+
+            Console.SetCursorPosition(0, 7);
+            Karaoke(cau1, tanSo1, khoangThoiGian1, thoiGianCho1, 7);
+            Karaoke(cau2, tanSo2, khoangThoiGian2, thoiGianCho2, 8);
+            Karaoke(cau3, tanSo3, khoangThoiGian3, thoiGianCho3, 9);
+            Karaoke(cau4, tanSo4, khoangThoiGian4, thoiGianCho4, 10);
 
             Console.ReadKey();
 
@@ -90,6 +93,48 @@ namespace demo
             Console.WriteLine();
         }
 
-        
+        static void Decoration()
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    if (i == 4 || j == 10 || i == 0 || j == 0)
+                    {
+                        Console.Write(" * ");
+                    } else
+                    {
+                        Console.Write("   ");
+                    }
+                }
+                Console.WriteLine("*");
+            }
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.SetCursorPosition(12, 1);
+            Console.Write("KARAOKE");
+            Console.SetCursorPosition(4, 2);
+            Console.Write("Có ai thương em như anh");
+            Console.SetCursorPosition(14, 3);
+            Console.Write("Ca sĩ: Tóc Tiên");
+            Console.SetCursorPosition(0,5);
+            Console.ForegroundColor= ConsoleColor.White;
+            for (int i = 3; i >= 1; i--)
+            {
+                Console.Beep();
+                Console.Write(i + " ");
+                if (i == 1)
+                {
+                    Console.Write("...");
+                    Thread.Sleep(800);
+                }
+                else
+                {
+                    Thread.Sleep(1000);
+                }
+            }
+        }
+
     }
 }
