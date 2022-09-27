@@ -1,0 +1,8 @@
+D:\Visual C#\beepv2\beepv2\bin\Debug\beepv2.exe.config
+D:\Visual C#\beepv2\beepv2\bin\Debug\beepv2.exe
+D:\Visual C#\beepv2\beepv2\bin\Debug\beepv2.pdb
+D:\Visual C#\beepv2\beepv2\obj\Debug\beepv2.csproj.AssemblyReference.cache
+D:\Visual C#\beepv2\beepv2\obj\Debug\beepv2.csproj.SuggestedBindingRedirects.cache
+D:\Visual C#\beepv2\beepv2\obj\Debug\beepv2.csproj.CoreCompileInputs.cache
+D:\Visual C#\beepv2\beepv2\obj\Debug\beepv2.exe
+D:\Visual C#\beepv2\beepv2\obj\Debug\beepv2.pdb
