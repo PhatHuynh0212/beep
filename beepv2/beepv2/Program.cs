@@ -25,14 +25,44 @@ namespace demo
         static void Main(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
-            string[] loiBaiHat = { "Con", "cò", "bé", "bé", "nó", "đậu", "cành", "tre" };
+            string[] cau1 = {"Làm", "gì", "có", "ai", "thương", "em", "như", "vậy" };
+            int[] tanSo1 = { SOL[2], SOL[2], MI[3], RE[3], DO[3], DO[3], LA[2], SOL[2] };
+            int[] khoangThoiGian1 = { 200, 200, 280, 200, 250, 400, 400, 400 };
+            int[] thoiGianCho1 = { 120, 80, 80, 80, 120, 300, 300, 300 };
+
+            string[] cau2 = { "Có", "ai", "cần", "em", "đến", "thế" };
+            int[] tanSo2 = { MI[3], RE[3], DO[3], RE[3], MI[3], SOL[3] };
+            int[] khoangThoiGian2 = { 180, 180, 180, 300, 400, 500 };
+            int[] thoiGianCho2 = { 120, 120, 120, 300, 300, 300 };
+
+            string[] cau3 = { "Có", "ai", "chia", "tay", "mà", "vẫn", "mong", "từng", "ngày" };
+            int[] tanSo3 = { MI[3], RE[3], DO[3], DO[3], LA[2], MI[3], RE[3], DO[3], DO[3] };
+            int[] khoangThoiGian3 = { 150, 150, 150, 150, 160, 220, 120, 120, 120 };
+            int[] thoiGianCho3 = { 150, 150, 150, 300, 150, 150, 150, 150, 400 };
+
+            string[] cau4 = { "Mong", "niềm", "vui", "dù", "em", "thuộc", "về", "ai" };
+            int[] tanSo4 = { SOL[2], MI[2], FA[2], MI[2], FA[2], MI[2], FA[2], SOL[2] };
+            int[] khoangThoiGian4 = { 150, 150, 150, 150, 150, 150, 180, 150 };
+            int[] thoiGianCho4 = { 180, 180, 220, 180, 180, 180, 180, 300 };
+
+            Karaoke(cau1, tanSo1, khoangThoiGian1, thoiGianCho1, 0);
+            Karaoke(cau2, tanSo2, khoangThoiGian2, thoiGianCho2, 1);
+            Karaoke(cau3, tanSo3, khoangThoiGian3, thoiGianCho3, 2);
+            Karaoke(cau4, tanSo4, khoangThoiGian4, thoiGianCho4, 3);
+
+            Console.ReadKey();
+
+        }
+
+        static void Karaoke(string[] loiBaiHat, int[] tanSo, int[] khoangThoiGian, int[] thoiGianCho, int dong)
+        {
             foreach (string loi in loiBaiHat)
             {
                 Console.Write("{0} ", loi);
             }
-            int[] hz = tanSo();
-            int[] duration = khoangThoiGian();
-            int[] timeBreak = thoiGianCho();
+            int[] hz = tanSo;
+            int[] duration = khoangThoiGian;
+            int[] timeBreak = thoiGianCho;
 
             for (int i = 0; i < loiBaiHat.Length; i++)
             {
@@ -40,49 +70,26 @@ namespace demo
 
                 for (int z = 0; z <= i; z++)
                 {
-                    if (z != loiBaiHat.Length)
-                    {
-                        dem += loiBaiHat[z].Length;
-                    }
+                    dem += loiBaiHat[z].Length;
                 }
-
                 dem += i;
 
-                Console.SetCursorPosition(dem, 0);
+                Console.SetCursorPosition(dem, dong);
                 for (int j = 0; j < loiBaiHat[i].Length; j++)
                 {
                     Console.Write("\b");
                 }
                 Console.ForegroundColor = ConsoleColor.Blue;
-                if (i == 0)
-                {
-                    Console.Write(loiBaiHat[i]);
-                } else
-                {
-                    Console.Write("" + loiBaiHat[i]);
-                }
+
+                Console.Write(loiBaiHat[i]);
                 Console.Beep(hz[i], duration[i]);
                 Thread.Sleep(timeBreak[i]);
             }
 
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine();
+        }
 
-            Console.ReadKey();
-
-        }
-        static int[] tanSo()
-        {
-            int[] a = { DO[2], SOL[1], FA[2], FA[2], FA[2], LA[1], DO[2], RE[2] };
-            return a;
-        }
-        static int[] khoangThoiGian()
-        {
-            int[] a = { 200, 200, 400, 500, 200, 300, 200, 200 };
-            return a;
-        }
-        static int[] thoiGianCho()
-        {
-            int[] a = { 200, 200, 200, 600, 200, 200, 200, 200 };
-            return a;
-        }
+        
     }
 }
